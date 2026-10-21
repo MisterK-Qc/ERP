@@ -1,0 +1,20 @@
+{
+  "name": "archidoc",
+  "version": "0.1.0",
+  "description": "Archivage documentaire avec workflows d'approbation, tableau de bord et recherche",
+  "private": true,
+  "type": "commonjs",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node --no-warnings=ExperimentalWarning src/server.js",
+    "dev": "node --no-warnings=ExperimentalWarning --watch src/server.js",
+    "test": "node --no-warnings=ExperimentalWarning --test test/*.test.js"
+  },
+  "engines": {
+    "node": ">=22.13"
+  },
+  "dependencies": {
+    "express": "^5.3.0",
+    "multer": "^2.4.0"
+  }
+}
