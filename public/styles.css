@@ -54,6 +54,8 @@ header nav a { padding: 6px 12px; border-radius: 6px; color: var(--muted); }
 header nav a.active { background: var(--bg); color: var(--text); font-weight: 600; }
 header nav a:hover { text-decoration: none; color: var(--text); }
 header .user { display: flex; align-items: center; gap: 12px; color: var(--muted); }
+header .user a { color: var(--muted); }
+header .user a.active, header .user a:hover { color: var(--text); }
 
 main { max-width: 1100px; margin: 0 auto; padding: 24px 16px 64px; }
 
@@ -95,6 +97,10 @@ td .sub { color: var(--muted); font-size: 13px; }
 .badge.in_progress { background: #dbe7fd; color: #1d4ab0; }
 .badge.approved { background: #d6f1df; color: #186a3b; }
 .badge.rejected { background: #f8d7d3; color: #922b21; }
+.badge.overdue { background: #fdebd0; color: #9c5700; }
+.stat.alert .value { color: var(--warning); }
+.snippet { margin: 4px 0; font-size: 13px; color: var(--muted); }
+mark { background: #fde68a; color: #1f2933; border-radius: 2px; padding: 0 1px; }
 .tag { display: inline-block; padding: 1px 6px; margin: 0 4px 2px 0; border-radius: 4px; background: var(--bg); border: 1px solid var(--border); font-size: 12px; color: var(--muted); }
 
 form .row { display: flex; gap: 12px; flex-wrap: wrap; }
@@ -152,6 +158,11 @@ ol.steps li.done .num { background: var(--success); border-color: var(--success)
 ol.steps li.current .num { background: var(--primary); border-color: var(--primary); color: #fff; }
 ol.steps li.blocked .num { background: var(--danger); border-color: var(--danger); color: #fff; }
 ol.steps .who { color: var(--muted); font-size: 13px; }
+ol.steps .who.ok { color: var(--success); }
+ol.steps .who.ko { color: var(--danger); }
+ol.steps .stage { flex: 1; display: flex; flex-direction: column; gap: 6px; }
+ol.steps .parallel-label { font-size: 11px; text-transform: uppercase; letter-spacing: .04em; color: var(--primary); font-weight: 700; }
+ol.steps .stage-step + .stage-step { border-top: 1px dashed var(--border); padding-top: 6px; }
 
 ul.history { list-style: none; padding: 0; margin: 0; }
 ul.history li { padding: 8px 0; border-bottom: 1px solid var(--border); }
@@ -162,7 +173,13 @@ ul.history .comment { margin-top: 4px; padding: 6px 10px; background: var(--bg);
 .preview { width: 100%; height: 520px; border: 1px solid var(--border); border-radius: var(--radius); background: #fff; }
 img.preview { height: auto; max-height: 520px; object-fit: contain; }
 
-.step-editor { display: grid; grid-template-columns: 1fr 120px 1fr auto; gap: 8px; margin-bottom: 8px; align-items: center; }
+.step-editor { display: grid; grid-template-columns: 1fr 120px 1fr 100px auto auto; gap: 8px; margin-bottom: 8px; align-items: center; }
+.perm-editor { display: grid; grid-template-columns: 130px 1fr 180px auto; gap: 8px; margin-bottom: 8px; align-items: center; }
+@media (max-width: 800px) {
+  .step-editor, .perm-editor { grid-template-columns: 1fr 1fr; }
+}
+label.inline { display: flex; align-items: center; gap: 6px; margin: 0; font-weight: normal; color: var(--text); white-space: nowrap; }
+label.inline input { width: auto; }
 .checklist { display: flex; flex-wrap: wrap; gap: 6px 16px; }
 .checklist label { display: flex; align-items: center; gap: 6px; font-weight: normal; color: var(--text); }
 .checklist input { width: auto; }
